@@ -1,58 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta -->
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ham sandwich</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Safe CS2 cheats, No comprimise.">
+    <meta name="theme-color" content="#7188da">
+    <meta name="msapplication-TileColor" content="#7188da">
+
+    <!-- Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" type="text/css"/>
+    </noscript>
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- Title -->
+    <title>HamSandwich - Safe CS2 Cheats</title>
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="nav-title">
-                <h1>HAMSANDWICH.SITE</h1>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#cheats">Cheats</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Header -->
+    <header>
+        <section class="container">
+            <nav>
+                <!-- Responsive Button -->
+                <input type="checkbox" id="checkbox">
+                <label for="checkbox" class="navbar-responsive-btn">
+                    <i class="fa fa-bars"></i>
+                </label>
 
-    <main>
-        <section id="home">
-            <div class="content">
-                <h2>Welcome to Hamsandwich</h2>
-                <p>Safe, Free, Reliable.</p>
-                <button id="showCheatsButton">Cheats</button>
-            </div>
+                <!-- Header Title -->
+                <a href="#" class="navbar-brand">HAM<span>SANDWICH</span></a>
+
+                <!-- Header Items -->
+                <ul class="navbar-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#cheats">Cheats</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+
+    <main class="container">
+        <!-- Home Section -->
+        <section id="home" class="initial-box mt-72 mb-24">
+            <article>
+                <h2>Welcome to HamSandwich</h2>
+                <p>Our mission is to provide safe and virus-free cheats for Counter-Strike 2 players.</p>
+                <button id="showCheatsButton" class="ek-button"><i class="fa fa-gamepad fa-fw"></i> Show Cheats</button>
+            </article>
         </section>
 
-        <section id="cheats" style="display: none;">
-            <div class="content">
+        <!-- Cheats Section -->
+        <section id="cheats" class="initial-box mt-72 mb-24" style="display: none;">
+            <article>
                 <h2>Cheats</h2>
-                <article>
-                    <h3>Ekknod UM</h3>
-                    <p>NO.1 External (precompiled)</p>
-                    <code>Download Link: <a href="#">EC-UM.zip</a></code>
-                </article>
-            </div>
+                <div class="cheat-list">
+                    <div class="cheat-item">
+                        <h3>Cheat 1: Wallhack</h3>
+                        <p>Description: This cheat allows you to see through walls.</p>
+                        <code>Download Link: <a href="#">wallhack.zip</a></code>
+                    </div>
+                    <div class="cheat-item">
+                        <h3>Cheat 2: Aimbot</h3>
+                        <p>Description: This cheat improves your aiming accuracy automatically.</p>
+                        <code>Download Link: <a href="#">aimbot.zip</a></code>
+                    </div>
+                    <div class="cheat-item">
+                        <h3>Cheat 3: Speed Hack</h3>
+                        <p>Description: This cheat increases your movement speed in the game.</p>
+                        <code>Download Link: <a href="#">speedhack.zip</a></code>
+                    </div>
+                </div>
+            </article>
         </section>
 
-        <section id="about">
-            <div class="content">
+        <!-- About Section -->
+        <section id="about" class="initial-box mt-72 mb-24">
+            <article>
                 <h2>About Us</h2>
-                <p>Hamsandwich is dedicated to helping the gaming community stay safe from malicious software.</p>
-            </div>
+                <p>HamSandwich is dedicated to helping the gaming community stay safe from malicious software.</p>
+            </article>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Hamsandwich. All rights reserved.</p>
+        <div class="container">
+            <p class="footer-text">HamSandwich © 2024</p>
+
+            <!-- Footer Options -->
+            <div class="footer-content">
+                <div>
+                    <a href="#" class="footer-item mb-6">Forum</a>
+                    <a href="#" class="footer-item mb-6">Reviews</a>
+                    <a href="#" class="footer-item">Updates</a>
+                </div>
+
+                <div>
+                    <a href="#" class="footer-item mb-6">Software</a>
+                    <a href="#" class="footer-item mb-6">Firmware</a>
+                    <a href="#" class="footer-item">General</a>
+                </div>
+                <br>
+            </div>
+        </div>
     </footer>
 
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="script.js"></script>
 </body>
 </html>

@@ -154,52 +154,53 @@
         const screenWidth = window.innerWidth;
         const screenHeight = window.innerHeight;
 
-        cats.forEach((cat) => {
-            let x = Math.random() * screenWidth;
-            let y = Math.random() * screenHeight;
-            let dx = (Math.random() - 0.5) * speed * 2;
-            let dy = (Math.random() - 0.5) * speed * 2;
+        function updateCatSpeed() {
+            cats.forEach((cat) => {
+                let x = parseFloat(cat.style.left) || Math.random() * screenWidth;
+                let y = parseFloat(cat.style.top) || Math.random() * screenHeight;
+                let dx = (Math.random() - 0.5) * speed * 2;
+                let dy = (Math.random() - 0.5) * speed * 2;
 
-            function animate() {
-                x += dx;
-                y += dy;
+                function animate() {
+                    x += dx;
+                    y += dy;
 
-                if (x > screenWidth - cat.offsetWidth) {
-                    x = screenWidth - cat.offsetWidth;
-                    dx = -dx;
+                    if (x > screenWidth - cat.offsetWidth) {
+                        x = screenWidth - cat.offsetWidth;
+                        dx = -dx;
+                    }
+
+                    if (x < 0) {
+                        x = 0;
+                        dx = -dx;
+                    }
+
+                    if (y > screenHeight - cat.offsetHeight) {
+                        y = screenHeight - cat.offsetHeight;
+                        dy = -dy;
+                    }
+
+                    if (y < 0) {
+                        y = 0;
+                        dy = -dy;
+                    }
+
+                    cat.style.left = `${x}px`;
+                    cat.style.top = `${y}px`;
+
+                    requestAnimationFrame(animate);
                 }
 
-                if (x < 0) {
-                    x = 0;
-                    dx = -dx;
-                }
-
-                if (y > screenHeight - cat.offsetHeight) {
-                    y = screenHeight - cat.offsetHeight;
-                    dy = -dy;
-                }
-
-                if (y < 0) {
-                    y = 0;
-                    dy = -dy;
-                }
-
-                cat.style.left = `${x}px`;
-                cat.style.top = `${y}px`;
-
-                requestAnimationFrame(animate);
-            }
-
-            animate();
-        });
+                animate();
+            });
+        }
 
         speedSlider.addEventListener('input', (event) => {
             speed = parseFloat(event.target.value);
-            cats.forEach((cat) => {
-                const dx = (Math.random() - 0.5) * speed * 2;
-                const dy = (Math.random() - 0.5) * speed * 2;
-            });
+            updateCatSpeed();
         });
+
+        updateCatSpeed();
     </script>
 </body>
 </html>

@@ -5,39 +5,50 @@ body {
     background-color: #f4f4f4;
 }
 
-header {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 2em 0;
-}
-
 nav {
     background-color: #333;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    display: block;
     color: white;
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
+    padding: 0.5em 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-nav ul li a:hover {
-    background-color: #111;
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-title h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1em;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-links li a:hover {
+    background-color: #555;
 }
 
 main {
@@ -48,6 +59,21 @@ main {
 
 section {
     margin-bottom: 40px;
+}
+
+.content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+article {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
 footer {
@@ -67,6 +93,8 @@ button {
     border: none;
     cursor: pointer;
     font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
 }
 
 button:hover {

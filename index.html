@@ -11,6 +11,7 @@
             overflow: hidden;
             background-color: #f4f4f4;
             font-family: monospace;
+            position: relative;
         }
 
         .ascii-cat {
@@ -18,6 +19,89 @@
             white-space: pre;
             font-size: 20px;
             user-select: none;
+        }
+
+        .slider-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider {
+            width: 100%;
+            height: 30px;
+            -webkit-appearance: none;
+            background: transparent;
+            position: relative;
+        }
+
+        .slider::-webkit-slider-runnable-track {
+            height: 10px;
+            background: url('https://www.pngrepo.com/png/354616/512/love-heart.png') repeat-x;
+            background-size: contain;
+            border-radius: 5px;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 40px;
+            height: 40px;
+            background: url('https://th.bing.com/th/id/OIP.ojREOHJiy65AmsIBJ5VqJgAAAA?rs=1&pid=ImgDetMain') no-repeat center center;
+            background-size: cover;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+        }
+
+        .slider::-moz-range-track {
+            height: 10px;
+            background: url('https://www.pngrepo.com/png/354616/512/love-heart.png') repeat-x;
+            background-size: contain;
+            border-radius: 5px;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 40px;
+            height: 40px;
+            background: url('https://th.bing.com/th/id/OIP.ojREOHJiy65AmsIBJ5VqJgAAAA?rs=1&pid=ImgDetMain') no-repeat center center;
+            background-size: cover;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+        }
+
+        .slider::-ms-track {
+            height: 10px;
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+
+        .slider::-ms-fill-lower {
+            background: url('https://www.pngrepo.com/png/354616/512/love-heart.png') repeat-x;
+            background-size: contain;
+            border-radius: 5px;
+        }
+
+        .slider::-ms-fill-upper {
+            background: url('https://www.pngrepo.com/png/354616/512/love-heart.png') repeat-x;
+            background-size: contain;
+            border-radius: 5px;
+        }
+
+        .slider::-ms-thumb {
+            width: 40px;
+            height: 40px;
+            background: url('https://th.bing.com/th/id/OIP.ojREOHJiy65AmsIBJ5VqJgAAAA?rs=1&pid=ImgDetMain') no-repeat center center;
+            background-size: cover;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
         }
     </style>
 </head>
@@ -56,9 +140,14 @@
         </pre>
     </div>
 
+    <div class="slider-container">
+        <input type="range" min="1" max="10" value="2" class="slider" id="speedSlider">
+    </div>
+
     <script>
         const cats = document.querySelectorAll('.ascii-cat');
-        const speed = 2;
+        const speedSlider = document.getElementById('speedSlider');
+        let speed = parseFloat(speedSlider.value);
         const screenWidth = window.innerWidth;
         const screenHeight = window.innerHeight;
 
@@ -99,6 +188,14 @@
             }
 
             animate();
+        });
+
+        speedSlider.addEventListener('input', (event) => {
+            speed = parseFloat(event.target.value);
+            cats.forEach((cat) => {
+                const dx = (Math.random() - 0.5) * speed * 2;
+                const dy = (Math.random() - 0.5) * speed * 2;
+            });
         });
     </script>
 </body>

@@ -1,10 +1,30 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hamsandwich</title>
+    <style>
         body {
             cursor: url('cursor.png'), auto;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #f4f4f4;
+            font-family: monospace;
         }
-</style>
-<pre>
 
+        .ascii-cat {
+            position: absolute;
+            white-space: pre;
+            font-size: 20px;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="ascii-cat" id="cat">
+        <pre>
                    _ |\_
                    \` ..\
               __,.-" =__Y=
@@ -12,6 +32,25 @@
       _    /   ,    \/\_
      ((____|    )_-\ \_-`
      `-----'`-----` `--`
-     
+        </pre>
+    </div>
 
-</pre>
+    <script>
+        const cat = document.getElementById('cat');
+        let x = 0;
+        let y = 0;
+        const speed = 2;
+
+        function animate() {
+            x += speed;
+            if (x > window.innerWidth) {
+                x = -200;
+            }
+            cat.style.left = `${x}px`;
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+</html>

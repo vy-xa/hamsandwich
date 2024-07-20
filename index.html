@@ -78,6 +78,53 @@
             background-color: rgba(255, 255, 255, 0.4);
             transform: scale(1.05);
         }
+        .central-area {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(90deg, rgba(75, 0, 130, 0.8), rgba(138, 43, 226, 0.7), rgba(255, 105, 180, 0.6));
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .central-area .central-title {
+            color: white;
+            font-size: 36px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 0 0 15px rgba(255, 105, 180, 0.8), 0 0 20px rgba(75, 0, 130, 0.6);
+            margin-bottom: 20px;
+        }
+        .central-area .central-paragraph {
+            color: white;
+            font-size: 18px;
+            font-family: 'Roboto', sans-serif;
+            margin-bottom: 30px;
+        }
+        .central-area .join-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-family: 'Roboto', sans-serif;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .central-area .join-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        .central-area .join-button:active {
+            background-color: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
         @keyframes topBarSlideIn {
             from {
                 transform: translateY(-100%);
@@ -96,6 +143,11 @@
             <button onclick="window.location.href='https://hamsandwich.site/'">home</button>
             <button onclick="window.location.href='https://discord.gg/m2neAe7QvJ'">discord</button>
         </div>
+    </div>
+    <div class="central-area">
+        <div class="central-title">hamsandwich condos</div>
+        <div class="central-paragraph">best games, no cost.</div>
+        <button class="join-button" onclick="window.location.href='https://hamsandwich.site/join'">play</button>
     </div>
 </body>
 </html>

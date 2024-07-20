@@ -11,7 +11,7 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
         }
         .background {
             position: fixed;
@@ -38,13 +38,23 @@
             font-size: 24px;
             font-weight: 600;
             font-family: 'Poppins', sans-serif;
+            position: relative;
+        }
+        .top-bar .title .site {
+            color: #9400D3;
+            font-size: 12px;
+            position: absolute;
+            right: -20px;
+            top: 0;
+            transform: rotate(90deg);
+            text-shadow: 0 0 8px #9400D3;
         }
         .top-bar .nav-buttons {
             display: flex;
             gap: 15px;
         }
         .top-bar .nav-buttons button {
-            background-color: rgba(255, 255, 255, 0.3);
+            background-color: rgba(255, 255, 255, 0.1);
             border: none;
             color: white;
             padding: 10px 20px;
@@ -54,16 +64,16 @@
             transition: background-color 0.3s;
         }
         .top-bar .nav-buttons button:hover {
-            background-color: rgba(255, 255, 255, 0.6);
+            background-color: rgba(255, 255, 255, 0.2);
         }
     </style>
 </head>
 <body>
     <div class="background"></div>
     <div class="top-bar">
-        <div class="title">hamsandwich</div>
+        <div class="title">hamsandwich<span class="site">.site</span></div>
         <div class="nav-buttons">
-            <button onclick="window.location.href='home.html'">home</button>
+            <button onclick="window.location.href='https://hamsandwich.site/'">home</button>
             <button onclick="window.location.href='https://discord.com'">discord</button>
         </div>
     </div>

@@ -5,202 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hamsandwich</title>
     <style>
-        body {
+        body, html {
             margin: 0;
             padding: 0;
-            overflow: hidden;
-            background-color: #f4f4f4;
-            font-family: monospace;
-            position: relative;
-        }
-
-        .ascii-cat {
-            position: absolute;
-            white-space: pre;
-            font-size: 20px;
-            user-select: none;
-        }
-
-        .slider-container {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .slider {
             width: 100%;
-            height: 30px;
-            -webkit-appearance: none;
-            background: transparent;
-            position: relative;
+            height: 100%;
+            font-family: Arial, sans-serif;
         }
-
-        .slider::-webkit-slider-runnable-track {
-            height: 10px;
-            background: url('https://www.pngrepo.com/png/354616/512/love-heart.png') repeat-x;
-            background-size: contain;
-            border-radius: 5px;
+        .background {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('back.jpg') no-repeat center center/cover;
+            z-index: -1;
         }
-
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 40px;
-            height: 40px;
-            background: url('https://th.bing.com/th/id/R.69c9a25b07e796115e2197467187e863?rik=%2bzUEmw4weUfMng&riu=http%3a%2f%2fpixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com%2fimage%2fcd13c74abf2c698.png&ehk=e%2bRm5VVze67EtZ3UVdOwIZZq8sir%2fAmlOlGjATmPhcM%3d&risl=&pid=ImgRaw&r=0') no-repeat center center;
-            background-size: cover;
+        .top-bar {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .top-bar .title {
+            color: white;
+            font-size: 24px;
+        }
+        .top-bar .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        .top-bar .nav-buttons button {
+            background-color: rgba(255, 255, 255, 0.3);
+            border: none;
+            color: white;
+            padding: 10px 20px;
             cursor: pointer;
-            position: relative;
-            z-index: 2;
-            border-radius: 50%;
-        }
-
-        .slider::-moz-range-track {
-            height: 10px;
-            background: url('https://www.pngrepo.com/png/354616/512/love-heart.png') repeat-x;
-            background-size: contain;
             border-radius: 5px;
+            transition: background-color 0.3s;
         }
-
-        .slider::-moz-range-thumb {
-            width: 40px;
-            height: 40px;
-            background: url('https://th.bing.com/th/id/R.69c9a25b07e796115e2197467187e863?rik=%2bzUEmw4weUfMng&riu=http%3a%2f%2fpixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com%2fimage%2fcd13c74abf2c698.png&ehk=e%2bRm5VVze67EtZ3UVdOwIZZq8sir%2fAmlOlGjATmPhcM%3d&risl=&pid=ImgRaw&r=0') no-repeat center center;
-            background-size: cover;
-            cursor: pointer;
-            position: relative;
-            z-index: 2;
-            border-radius: 50%;
-        }
-
-        .slider::-ms-track {
-            height: 10px;
-            background: transparent;
-            border-color: transparent;
-            color: transparent;
-        }
-
-        .slider::-ms-fill-lower {
-            background: url('https://www.pngrepo.com/png/354616/512/love-heart.png') repeat-x;
-            background-size: contain;
-            border-radius: 5px;
-        }
-
-        .slider::-ms-fill-upper {
-            background: url('https://www.pngrepo.com/png/354616/512/love-heart.png') repeat-x;
-            background-size: contain;
-            border-radius: 5px;
-        }
-
-        .slider::-ms-thumb {
-            width: 40px;
-            height: 40px;
-            background: url('https://th.bing.com/th/id/R.69c9a25b07e796115e2197467187e863?rik=%2bzUEmw4weUfMng&riu=http%3a%2f%2fpixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com%2fimage%2fcd13c74abf2c698.png&ehk=e%2bRm5VVze67EtZ3UVdOwIZZq8sir%2fAmlOlGjATmPhcM%3d&risl=&pid=ImgRaw&r=0') no-repeat center center;
-            background-size: cover;
-            cursor: pointer;
-            position: relative;
-            z-index: 2;
-            border-radius: 50%;
+        .top-bar .nav-buttons button:hover {
+            background-color: rgba(255, 255, 255, 0.6);
         }
     </style>
 </head>
 <body>
-    <div class="ascii-cat" id="cat1">
-        <pre>
-                   _ |\_
-                   \` ..\
-              __,.-" =__Y=
-            ."        )
-      _    /   ,    \/\_
-     ((____|    )_-\ \_-`
-     `-----'`-----` `--`
-        </pre>
+    <div class="background"></div>
+    <div class="top-bar">
+        <div class="title">hamsandwich</div>
+        <div class="nav-buttons">
+            <button onclick="window.location.href='home.html'">home</button>
+            <button onclick="window.location.href='https://discord.com'">discord</button>
+        </div>
     </div>
-    <div class="ascii-cat" id="cat2">
-        <pre>
-                   _ |\_
-                   \` ..\
-              __,.-" =__Y=
-            ."        )
-      _    /   ,    \/\_
-     ((____|    )_-\ \_-`
-     `-----'`-----` `--`
-        </pre>
-    </div>
-    <div class="ascii-cat" id="cat3">
-        <pre>
-                   _ |\_
-                   \` ..\
-              __,.-" =__Y=
-            ."        )
-      _    /   ,    \/\_
-     ((____|    )_-\ \_-`
-     `-----'`-----` `--`
-        </pre>
-    </div>
-
-    <div class="slider-container">
-        <input type="range" min="1" max="10" value="2" class="slider" id="speedSlider">
-    </div>
-
-    <script>
-        const cats = document.querySelectorAll('.ascii-cat');
-        const speedSlider = document.getElementById('speedSlider');
-        let speed = parseFloat(speedSlider.value);
-        const screenWidth = window.innerWidth;
-        const screenHeight = window.innerHeight;
-
-        function updateCatSpeed() {
-            cats.forEach((cat) => {
-                let x = parseFloat(cat.style.left) || Math.random() * screenWidth;
-                let y = parseFloat(cat.style.top) || Math.random() * screenHeight;
-                let dx = (Math.random() - 0.5) * speed * 2;
-                let dy = (Math.random() - 0.5) * speed * 2;
-
-                function animate() {
-                    x += dx;
-                    y += dy;
-
-                    if (x > screenWidth - cat.offsetWidth) {
-                        x = screenWidth - cat.offsetWidth;
-                        dx = -dx;
-                    }
-
-                    if (x < 0) {
-                        x = 0;
-                        dx = -dx;
-                    }
-
-                    if (y > screenHeight - cat.offsetHeight) {
-                        y = screenHeight - cat.offsetHeight;
-                        dy = -dy;
-                    }
-
-                    if (y < 0) {
-                        y = 0;
-                        dy = -dy;
-                    }
-
-                    cat.style.left = `${x}px`;
-                    cat.style.top = `${y}px`;
-
-                    requestAnimationFrame(animate);
-                }
-
-                animate();
-            });
-        }
-
-        speedSlider.addEventListener('input', (event) => {
-            speed = parseFloat(event.target.value);
-            updateCatSpeed();
-        });
-
-        updateCatSpeed();
-    </script>
 </body>
 </html>

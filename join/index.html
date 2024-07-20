@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hamsandwich</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
+        }
+        .background {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('back.jpg') no-repeat center center/cover;
+            filter: blur(5px);
+            z-index: -1;
+        }
+        .top-bar {
+            width: 100%;
+            background: linear-gradient(90deg, rgba(75, 0, 130, 0.8), rgba(138, 43, 226, 0.7), rgba(255, 105, 180, 0.6));
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            animation: topBarSlideIn 0.5s ease-out;
+        }
+        .top-bar .title {
+            color: white;
+            font-size: 28px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            text-shadow: 0 0 15px rgba(255, 105, 180, 0.8), 0 0 20px rgba(75, 0, 130, 0.6);
+        }
+        .top-bar .title .site {
+            color: #DDA0DD;
+            font-size: 24px;
+            position: absolute;
+            right: -50px;
+            top: 0;
+            transform: rotate(90deg);
+            text-shadow: 0 0 10px #DDA0DD, 0 0 15px #9400D3;
+        }
+        .top-bar .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        .top-bar .nav-buttons button {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-family: 'Roboto', sans-serif;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .top-bar .nav-buttons button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        .top-bar .nav-buttons button:active {
+            background-color: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+        .central-area {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(90deg, rgba(75, 0, 130, 0.8), rgba(138, 43, 226, 0.7), rgba(255, 105, 180, 0.6));
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .central-area .central-title {
+            color: white;
+            font-size: 36px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 0 0 15px rgba(255, 105, 180, 0.8), 0 0 20px rgba(75, 0, 130, 0.6);
+            margin-bottom: 20px;
+        }
+        .central-area .central-paragraph {
+            color: white;
+            font-size: 18px;
+            font-family: 'Roboto', sans-serif;
+            margin-bottom: 30px;
+        }
+        .central-area .g-recaptcha {
+            margin-bottom: 20px;
+        }
+        .central-area .join-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: white;
+            padding: 10px 20px;
+            cursor: not-allowed;
+            border-radius: 8px;
+            font-family: 'Roboto', sans-serif;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .central-area .join-button.enabled {
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        .central-area .join-button.enabled:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        .central-area .join-button.enabled:active {
+            background-color: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+        @keyframes topBarSlideIn {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        function enableJoinButton() {
+            const joinButton = document.getElementById('joinButton');
+            joinButton.classList.add('enabled');
+            joinButton.disabled = false;
+            joinButton.style.cursor = 'pointer';
+        }
+    </script>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="top-bar">
+        <div class="title">hamsandwich<span class="site">.site</span></div>
+        <div class="nav-buttons">
+            <button onclick="window.location.href='https://hamsandwich.site/'">home</button>
+            <button onclick="window.location.href='https://discord.gg/m2neAe7QvJ'">discord</button>
+        </div>
+    </div>
+    <div class="central-area">
+        <div class="central-title">Join</div>
+        <div class="central-paragraph">Complete the captcha to continue.</div>
+        <div class="g-recaptcha" data-sitekey="6LdvrBQqAAAAABjWeTTEgca0jmXr9F5rF_QdTEl7" data-callback="enableJoinButton"></div>
+        <button id="joinButton" class="join-button" disabled onclick="alert('No game at the moment.')">Play</button>
+    </div>
+</body>
+</html>

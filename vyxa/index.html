@@ -1,253 +1,100 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#000">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vyxa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <style>
-      html {
-        font-size: 62.5%;
-        box-sizing: border-box;
-        height: -webkit-fill-available;
-      }
-      *, ::after, ::before {
-        box-sizing: inherit;
-      }
-      body {
-        font-family: sf pro text, sf pro icons, helvetica neue, helvetica, arial, sans-serif;
-        font-size: 1.6rem;
-        line-height: 1.65;
-        word-break: break-word;
-        font-kerning: auto;
-        font-variant: normal;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-rendering: optimizeLegibility;
-        hyphens: auto;
-        height: 100vh;
-        height: -webkit-fill-available;
-        max-height: 100vh;
-        max-height: -webkit-fill-available;
-        margin: 0;
-      }
-      ::selection {
-        background: #79ffe1;
-      }
-      ::-moz-selection {
-        background: #79ffe1;
-      }
-      a {
-        cursor: pointer;
-        color: #0070f3;
-        text-decoration: none;
-        transition: all .2s ease;
-        border-bottom: 1px solid #0000;
-      }
-      a:hover {
-        border-bottom: 1px solid #0070f3;
-      }
-      ul {
-        padding: 0;
-        margin-left: 1.5em;
-        list-style-type: none;
-      }
-      li {
-        margin-bottom: 10px;
-      }
-      ul li:before {
-        content: '\02013';
-      }
-      li:before {
-        display: inline-block;
-        color: #ccc;
-        position: absolute;
-        margin-left: -18px;
-        transition: color .2s ease;
-      }
-      code {
-        font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-        font-size: .92em;
-      }
-      code:after, code:before {
-        content: '`';
-      }
-      .container {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        min-height: 100%;
-      }
-      main {
-        max-width: 80rem;
-        padding: 4rem 6rem;
-        margin: auto;
-      }
-      ul {
-        margin-bottom: 32px;
-      }
-      .error-title {
-        font-size: 2rem;
-        padding-left: 22px;
-        line-height: 1.5;
-        margin-bottom: 24px;
-      }
-      .error-title-guilty {
-        border-left: 2px solid #ed367f;
-      }
-      .error-title-innocent {
-        border-left: 2px solid #59b89c;
-      }
-      @media(max-width: 500px) {
-        .owner-error {
-          display: none;
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
         }
-      }
-      main p {
-        color: #333;
-      }
-      .devinfo-container {
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 32px;
-      }
-      .error-code {
-        margin: 0;
-        font-size: 1.6rem;
-        color: #000;
-        margin-bottom: 1.6rem;
-      }
-      .devinfo-line {
-        color: #333;
-      }
-      .devinfo-line code, code, li {
-        color: #000;
-      }
-      .devinfo-line:not(:last-child) {
-        margin-bottom: 8px;
-      }
-      .docs-link, .contact-link {
-        font-weight: 500;
-      }
-      header, footer, footer a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      header, footer {
-        min-height: 100px;
-        height: 100px;
-      }
-      header {
-        border-bottom: 1px solid #eaeaea;
-      }
-      header h1 {
-        font-size: 1.8rem;
-        margin: 0;
-        font-weight: 500;
-      }
-      header p {
-        font-size: 1.3rem;
-        margin: 0;
-        font-weight: 500;
-      }
-      .header-item {
-        display: flex;
-        padding: 0 2rem;
-        margin: 2rem 0;
-        text-decoration: line-through;
-        color: #999;
-      }
-      .header-item.active {
-        color: #ff0080;
-        text-decoration: none;
-      }
-      .header-item.first {
-        border-right: 1px solid #eaeaea;
-      }
-      .header-item-content {
-        display: flex;
-        flex-direction: column;
-      }
-      .header-item-icon {
-        margin-right: 1rem;
-        margin-top: .6rem;
-      }
-      footer {
-        border-top: 1px solid #eaeaea;
-      }
-      footer a {
-        color: #000;
-      }
-      footer a:hover {
-        border-bottom-color: #0000;
-      }
-      footer svg {
-        margin-left: .8rem;
-      }
-      .note {
-        padding: 8pt 16pt;
-        border-radius: 5px;
-        border: 1px solid #0070f3;
-        font-size: 14px;
-        line-height: 1.8;
-        color: #0070f3;
-      }
-      @media(max-width: 500px) {
-        .devinfo-container .devinfo-line code {
-          margin-top: .4rem;
+        .background {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('back.jpg') no-repeat center center/cover;
+            filter: blur(5px);
+            z-index: -1;
         }
-        .devinfo-container .devinfo-line:not(:last-child) {
-          margin-bottom: 1.6rem;
+        .central-area {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(90deg, rgba(75, 0, 130, 0.8), rgba(138, 43, 226, 0.7), rgba(255, 105, 180, 0.6));
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
         }
-        .devinfo-container {
-          margin-bottom: 0;
+        .central-area .central-title {
+            color: white;
+            font-size: 36px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 0 0 15px rgba(255, 105, 180, 0.8), 0 0 20px rgba(75, 0, 130, 0.6);
+            margin-bottom: 20px;
         }
-        header {
-          flex-direction: column;
-          height: auto;
-          min-height: auto;
-          align-items: flex-start;
+        .central-area .about-me {
+            color: white;
+            font-size: 18px;
+            font-family: 'Roboto', sans-serif;
+            text-align: left;
+            white-space: pre-wrap;
         }
-        .header-item.first {
-          border-right: none;
-          margin-bottom: 0;
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: sparkle 1.5s infinite;
         }
-        main {
-          padding: 1rem 2rem;
+        @keyframes sparkle {
+            0% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1.5); }
+            100% { opacity: 0; transform: scale(0); }
         }
-        body {
-          font-size: 1.4rem;
-          line-height: 1.55;
+        @keyframes topBarSlideIn {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
         }
-        footer {
-          display: none;
-        }
-        .note {
-          margin-top: 16px;
-        }
-      }
     </style>
-  </head>
-  <body>
-    <div class="container">
-      <main>
-        <p class="devinfo-container">
-          <span class="devinfo-line">
-            <strong>about me</strong>
-          </span>
-          <span class="devinfo-line">
-<br>
-<code>
-<br>
-╭ ﹕‹𝟹﹕name : vyxa (call me alex)<br>| ﹕‹𝟹﹕age : 14<br>| ﹕‹𝟹﹕personality : dumb and eepy<br>| ﹕‹𝟹﹕sexuality : bisexual<br>| ﹕‹𝟹﹕gender : male (optional)<br>| ﹕‹𝟹﹕hobbies : gaming & coding<br>| ﹕‹𝟹﹕fav cartoon : spongebob<br>| ﹕‹𝟹﹕pronuns : he/him<br>╰ ﹕‹𝟹﹕dms : open
-<br>
-</code>
-          </span>
-        </p>
-      </main>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="central-area">
+        <div class="central-title">about me</div>
+        <div class="about-me">
+╭ ﹕‹𝟹﹕name : vyxa (call me alex)
+| ﹕‹𝟹﹕age : 14
+| ﹕‹𝟹﹕personality : dumb and eepy
+| ﹕‹𝟹﹕sexuality : bisexual
+| ﹕‹𝟹﹕gender : male (optional)
+| ﹕‹𝟹﹕hobbies : gaming & coding
+| ﹕‹𝟹﹕fav cartoon : spongebob
+| ﹕‹𝟹﹕pronouns : he/him
+╰ ﹕‹𝟹﹕dms : open
+        </div>
+        <div class="sparkles">
+            <div class="sparkle" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
+            <div class="sparkle" style="top: 50%; left: 50%; animation-delay: 0.5s;"></div>
+            <div class="sparkle" style="top: 70%; left: 80%; animation-delay: 1s;"></div>
+            <div class="sparkle" style="top: 30%; left: 60%; animation-delay: 1.5s;"></div>
+            <div class="sparkle" style="top: 90%; left: 40%; animation-delay: 2s;"></div>
+        </div>
     </div>
-  </body>
+</body>
 </html>

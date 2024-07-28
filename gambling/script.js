@@ -12,9 +12,9 @@ function spin() {
     reel3.style.animation = 'none';
 
     setTimeout(() => {
-        reel1.style.animation = '';
-        reel2.style.animation = '';
-        reel3.style.animation = '';
+        reel1.style.animation = 'spin 0.5s ease-in-out';
+        reel2.style.animation = 'spin 0.5s ease-in-out';
+        reel3.style.animation = 'spin 0.5s ease-in-out';
     }, 10);
 
     setTimeout(() => {

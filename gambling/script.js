@@ -1,11 +1,11 @@
 document.getElementById('spinButton').addEventListener('click', spin);
-document.getElementById('closeButton').addEventListener('click', closeOverlay);
 
 function spin() {
     const emojis = ['🚽', '📷', '🗣️', '🚻', '🛁'];
     const reel1 = document.getElementById('reel1');
     const reel2 = document.getElementById('reel2');
     const reel3 = document.getElementById('reel3');
+    const body = document.body;
 
     reel1.style.animation = 'none';
     reel2.style.animation = 'none';
@@ -28,18 +28,13 @@ function spin() {
 
 function checkResult(reel1, reel2, reel3) {
     const result = document.getElementById('result');
-    const overlay = document.getElementById('overlay');
+    const body = document.body;
 
     if (reel1 === reel2 && reel2 === reel3) {
         result.textContent = 'Congratulations! You win!';
+        body.classList.add('win');
     } else {
         result.textContent = 'Try again!';
+        body.classList.remove('win');
     }
-
-    overlay.classList.remove('hidden');
-}
-
-function closeOverlay() {
-    const overlay = document.getElementById('overlay');
-    overlay.classList.add('hidden');
 }
